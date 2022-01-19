@@ -27,29 +27,6 @@ void Clear(){
     #endif
 }
 
-string CustomSeparatorWithText(string symbol, string text, int length = 10) {
-    string center, text1, text2, text3, lati, sym;
-    int length2;
-
-    sym = symbol;
-
-    int tex = text.length();
-
-    for (int i = 1; i < tex+2 + length; i++) {
-        symbol = symbol + sym;
-    }
-
-    text1 = symbol + "\n";
-    length2 = length/2-0;
-
-    for (int i = 0; i < length2; i++) {
-        lati = lati + sym;
-    }
-
-    text3 = symbol + "\n" + lati + " " + text + " " + lati + "\n" + symbol + "\n";
-    return text3;
-}
-
 string Login[2] = {"Daniel", "875645"};
 string Dati[5] = {"Daniel", "Ippolito", "27/11/2005", "19/01/2022", "PPLDNL05S27B429W"};
 double saldo = 1000000000.00, quantita;
