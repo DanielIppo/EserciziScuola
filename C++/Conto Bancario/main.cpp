@@ -30,7 +30,7 @@ void Clear(){
 string Login[2] = {"Daniel", "875645"};
 string Dati[5] = {"Daniel", "Ippolito", "27/11/2005", "19/01/2022", "PPLDNL05S27B429W"};
 string Dati1[5] = {"Nome: ", "Cognome: ", "Data di nascita: ", "Data apertura conto: ", "Codice fiscale: "};
-double saldo = 100000.00, quantita;
+double saldo = 1000000.00, quantita;
 string username, password;
 int scelta;
 
@@ -43,20 +43,21 @@ class Conto{
         cout <<"#############################################"<<endl;
         cout << "\nQuanto vorresti prelevare?\n";
         cout <<"\033[33mRicorda che puoi per un massimo di 2000\u20AC\033[0m\n\n";
-        cin >> quantita;
+        cin>>quantita;
+        verifica_input(quantita);
         if (quantita <= 2000){
             cout << "\n\nPrelevato correttamente, ritorno alla Home...";
             cout.flush();
             saldo = saldo - quantita;
-            sleep(5);
+            sleep(3);
             Clear();
-            Home(); 
+            Home();
         } else {
             cout << "\n\nHai digitato un numero troppogrande o hai sbagliato a digitare, riprova..";
             cout.flush();
-            sleep(5);
+            sleep(3);
             Clear();
-            Prelievo(); 
+            Prelievo();
         }
 
     }
@@ -68,17 +69,18 @@ class Conto{
         cout <<"\nQuanto vorresti versare?\n";
         cout <<"\033[33mRicorda che puoi per un massimo di 2000\u20AC\033[0m\n\n";
         cin >> quantita;
+        verifica_input(quantita);
         if (quantita <= 2000){
             saldo = saldo - quantita;
             cout << "\n\nPrelevato correttamente, ritorno alla Home...";
             cout.flush();
-            sleep(5);
+            sleep(3);
             Clear();
             Home(); 
         } else {
             cout << "\n\nHai digitato un numero troppogrande o hai sbagliato a digitare, riprova..";
             cout.flush();
-            sleep(5);
+            sleep(3);
             Clear();
             Versamento(); 
         }
@@ -93,10 +95,10 @@ class Conto{
         }
         cout <<"Saldo: "<< saldo << "\u20AC";
         cout.flush();
-        sleep(3);
+        sleep(1);
         cout <<"\n\nRitorno alla home...";
         cout.flush();
-        sleep(3);
+        sleep(2);
         Clear();
         Home();
     }
@@ -108,12 +110,15 @@ class Conto{
         cout << "Che operazione vorresti effettuare?\n\n"<< "1)Prelievo\n\n2)Versamento\n\n3)Info Conto\n\n";
         cin >> scelta; 
         switch (scelta){
-            case 1:Clear();Prelievo();
-            case 2:Clear();Versamento();
-            case 3:Clear();Info();
+            case 1:Clear();
+                   Prelievo();
+            case 2:Clear();
+                   Versamento();
+            case 3:Clear();
+                   Info();
             default:cout << "Hai sbagliato a digitare, riprova...";
             cout.flush();
-            sleep(4);
+            sleep(3);
             Clear();
             Home();
         }
@@ -125,7 +130,7 @@ class Conto{
         cout <<"##########################################"<<endl<<endl;
         cout << "Inserisci il tuo nome Username\n\n";
         cin >> username;
-        cout << "\n\nOra inserisci la tua password\n\n";
+        cout << "\nOra inserisci la tua password\n\n";
         cin >> password;
         verifica_login(username, password);
     }
@@ -145,6 +150,16 @@ class Conto{
             Clear();
             login();
         }
+    }
+    
+    int verifica_input(int riprova){
+        while(cin.fail()){
+            cin.clear();
+            cout << "\nHai sbagliato a digitare il numero, riprova...\n";
+            cin.ignore(1000, '\n');
+            cin >> riprova;
+        }
+        return riprova;
     }
     
     
