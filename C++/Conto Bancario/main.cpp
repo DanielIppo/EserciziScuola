@@ -95,7 +95,7 @@ class Conto{
         }
         cout <<"Saldo: "<< saldo << "\u20AC";
         cout.flush();
-        sleep(1);
+        sleep(4);
         cout <<"\n\nRitorno alla home...";
         cout.flush();
         sleep(2);
