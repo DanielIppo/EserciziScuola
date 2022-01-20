@@ -71,7 +71,7 @@ class Conto{
         cin >> quantita;
         verifica_input(quantita);
         if (quantita <= 2000){
-            saldo = saldo - quantita;
+            saldo = saldo + quantita;
             cout << "\n\nPrelevato correttamente, ritorno alla Home...";
             cout.flush();
             sleep(3);
