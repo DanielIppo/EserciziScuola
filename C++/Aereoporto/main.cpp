@@ -58,7 +58,8 @@ int minuti = aTime->tm_min;
 class Volo {
 public:
 
-    string scelta;
+    int scelta;
+    string sceltaString;
 
     void home() {
         cout << Rosso << "####################################" << endl;
@@ -67,11 +68,9 @@ public:
 
         cout << Bold << "Che cosa vorresti fare?\n" << Blue << "1)Verificare lo stato di un volo.\n2)Vedere se è già partito.\n\n" << ColoreDefault << AttributiStringOff;
         cin >> scelta;
-        if (scelta == "1" || scelta == "uno" || scelta == "Uno") {
-            infoVoli();
-        }
-        else if (scelta == "2" || scelta == "due" || scelta == "Due") {
-            tempoAlVolo();
+        switch (scelta) {
+            case 1: infoVoli(); break;
+            case 2: tempoAlVolo(); break;
         }
     }
 
@@ -116,7 +115,7 @@ public:
     bool verificaCodice(bool flag = false) {
 
         for (int i = 0; i < 5; i++) {
-            if (scelta == codice[i]) {
+            if (sceltaString == codice[i]) {
                 indice = i;
                 flag = true;
                 return true;
