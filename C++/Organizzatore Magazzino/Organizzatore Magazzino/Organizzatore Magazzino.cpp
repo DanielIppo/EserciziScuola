@@ -62,8 +62,8 @@ public:
         cout << "2) Ricercare un prodotto." << endl;
         cout << "3) Cancellare un prodotto. " << endl;
         cout << "4) Sommare il valore di tutti i prodotti preesenti nel magazzino." << endl;
-        cout << "5) Sommare il valore dei prodotti della stessa tipologia presenti nel magazzino."  << endl;
-        cout << "6) Uscita."<< AttributiStringOff <<endl;
+        cout << "5) Sommare il valore dei prodotti della stessa tipologia presenti nel magazzino." << endl;
+        cout << "6) Uscita." << AttributiStringOff << endl<<endl;
         cin >> sceltaInt;
 
         switch (sceltaInt) {
@@ -86,7 +86,7 @@ public:
         cout << "====  Magazzino  ====" << endl;
         cout << "=====================" << endl << endl << AttributiStringOff;
 
-        cout<<Bold<<Magenta<<"Ti ricordo però che il codice ha un prefisso in base alla categoria:\n30 per pc fisso, 90 per portatile,\n89 per scheda video, 60 per mouse,\n72 per tastiera e 13 per cuffie.\n"<<AttributiStringOff <<Bold<<Blue<< "\nDimmi il codice del prodotto: "<<AttributiStringOff;
+        cout << Bold << Magenta << "Ti ricordo perï¿½ che il codice ha un prefisso in base alla categoria:\n30 per pc fisso, 90 per portatile,\n89 per scheda video, 60 per mouse,\n72 per tastiera e 13 per cuffie.\n" << AttributiStringOff << Bold << Blue << "\nDimmi il codice del prodotto: " << AttributiStringOff;
         cin >> sceltaInt;
         verificaInput(sceltaInt);
         verificaCodice(sceltaInt);
@@ -97,19 +97,25 @@ public:
                 break;
             }
         }
-            if (flag == false) {
-                cout << Bold << Rosso << "Hai inseriito il numero massimo di codici" << AttributiStringOff << endl;
-                Sleep(4);
-                Clear();
-                home();
+        for (int i = 0; i < lunghezzaCodice; i++) {
+            if (codice[i] == sceltaInt) {
+                tmp = i;
+                break;
             }
+        }
+        if (flag == false) {
+            cout << Bold << Rosso << "Hai inseriito il numero massimo di codici" << AttributiStringOff << endl;
+            Sleep(4);
+            Clear();
+            home();
+        }
         cout << Bold << Blue << "\nDimmi il nome del prodotto: " << AttributiStringOff;
         cin >> sceltaString;
         getline(cin, sceltaString, '\n');
         if (sceltaString != " ") {
             nome[tmp] = sceltaString;
 
-            cout << Bold << Blue << "\nDimmi la quantità del prodotto: " << AttributiStringOff;
+            cout << Bold << Blue << "\nDimmi la quantitÃ  del prodotto: " << AttributiStringOff;
             cin >> sceltaInt;
             quantita[tmp] = sceltaInt;
 
@@ -132,13 +138,13 @@ public:
         cin >> sceltaInt;
         verificaInput(sceltaInt);
         verificaCodice(sceltaInt);
-        cout << Bold << Verde << "\nCodice: " << sceltaInt <<"\nNome: " << nome[tmp] << "\nTipoligia: "<< tipologia[tmpTip] << "\nQuantità: " << quantita[tmp]<<"\nCosto: " << costo[tmp] << " €";
+        cout << Bold << Verde << "\nCodice: " << sceltaInt << "\nNome: " << nome[tmp] << "\nTipoligia: " << tipologia[tmpTip] << "\nQuantitï¿½: " << quantita[tmp] << "\nCosto: " << costo[tmp] << " â‚¬";
         Sleep(4000);
         Clear();
         home();
 
     }
-    
+
     void cancellaProdotto() {
 
         cout << Bold << Rosso << "=====================" << endl;
@@ -171,7 +177,7 @@ public:
             }
         }
 
-        cout << totQuantita;
+        cout <<Verde<<Bold<<"Hai " << totQuantita <<" prodotti in magazzino."<<endl<<endl<<Rosso<<"Ritorno alla home..." <<AttributiStringOff<< endl;
         Sleep(4000);
         Clear();
         home();
@@ -188,13 +194,7 @@ public:
             case 60: tmpTip = 3; flag = true; break;
             case 72: tmpTip = 4; flag = true; break;
             case 13: tmpTip = 5; flag = true; break;
-            default: cout << Rosso << Bold << "Non esistono categorie con questo prefisso, o potrebbe non esistere alcun prodotto, riprova..." << AttributiStringOff <<endl; cin >> code;
-            }
-        }
-        for (int i = 0; i < lunghezzaCodice; i++) {
-            if (codice[i] == sceltaInt) {
-                tmp = i;
-                break;
+            default: cout << Rosso << Bold << "Non esistono categorie con questo prefisso, o potrebbe non esistere alcun prodotto, riprova..." << AttributiStringOff << endl; cin >> code;
             }
         }
         return code;
@@ -203,7 +203,7 @@ public:
     int verificaInput(int riprova) {
         while (cin.fail()) {
             cin.clear();
-            cout <<Bold<<Rosso<< "\nHai sbagliato a digitare il codice prodotto, riprova...\n"<<AttributiStringOff;
+            cout << Bold << Rosso << "\nHai sbagliato a digitare il codice prodotto, riprova...\n" << AttributiStringOff;
             cin.ignore(1000, '\n');
             cin >> riprova;
         }
