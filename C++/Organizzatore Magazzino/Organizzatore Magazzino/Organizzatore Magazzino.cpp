@@ -36,14 +36,23 @@ void Clear() {
 }
 
 string tipologia[] = { "Computer_Fisso", "Computer_Portatile", "Scheda_Video", "Mouse", "Tastiera", "Cuffie" };
-int codice[] = { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1 };
-int lunghezzaCodice = sizeof(codice) / sizeof(codice[0]);
-int quantita[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
-int lunghezzaQuantita = sizeof(quantita) / sizeof(quantita[0]);
-int costo[] = { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1 };
-int lunghezzaCosto = sizeof(costo) / sizeof(costo[0]);
-string nome[] = { "a","a", "a","a","a", "a","a","a", "a","a","a", "a","a","a", "a","a","a", "a" };
 
+int lunghezzaArray = 1000;
+
+int codice[1000];
+int quantita[1000];
+int costo[1000];
+string nome[1000];
+
+void inizializzaArray(int* codice, int* quantita, int* costo, string* nome){
+    
+    for (int i = 0; i < lunghezzaArray; i++){
+        codice[i] = -1;
+        quantita[i] = 0;
+        costo[i] = 0;
+        nome[i] = "a";
+    }
+}
 
 class gestoreMagazzino {
 public:
@@ -75,7 +84,7 @@ public:
         case 6:break;
         default:
             cout << Bold << Giallo << "Hai sbagliato a inserire o non ho trovato quello che cerchi, riprova..." << AttributiStringOff << endl;
-            Sleep(4);
+            sleep(4);
             Clear();
             home();
         }
@@ -90,29 +99,29 @@ public:
         cin >> sceltaInt;
         verificaInput(sceltaInt);
         verificaCodice(sceltaInt);
-        for (int i = 0; i < lunghezzaCodice; i++) {
+        for (int i = 0; i < lunghezzaArray; i++) {
             if (codice[i] == -1) {
                 codice[i] = sceltaInt;
                 flag = true;
                 break;
             }
         }
-        for (int i = 0; i < lunghezzaCodice; i++) {
+        for (int i = 0; i < lunghezzaArray; i++) {
             if (codice[i] == sceltaInt) {
                 tmp = i;
                 break;
             }
         }
         if (flag == false) {
-            cout << Bold << Rosso << "Hai inseriito il numero massimo di codici" << AttributiStringOff << endl;
-            Sleep(4);
+            cout << Bold << Rosso << "Hai inserito il numero massimo di codici" << AttributiStringOff << endl;
+            sleep(4);
             Clear();
             home();
         }
         cout << Bold << Blue << "\nDimmi il nome del prodotto: " << AttributiStringOff;
         cin >> sceltaString;
         getline(cin, sceltaString, '\n');
-        if (sceltaString != " ") {
+        if (sceltaString != "") {
             nome[tmp] = sceltaString;
 
             cout << Bold << Blue << "\nDimmi la quantità del prodotto: " << AttributiStringOff;
@@ -123,7 +132,7 @@ public:
             cin >> sceltaInt;
             costo[tmp] = sceltaInt;
 
-            Sleep(4);
+            sleep(1);
             Clear();
             home();
         }
@@ -139,7 +148,7 @@ public:
         verificaInput(sceltaInt);
         verificaCodice(sceltaInt);
         cout << Bold << Verde << "\nCodice: " << sceltaInt << "\nNome: " << nome[tmp] << "\nTipoligia: " << tipologia[tmpTip] << "\nQuantit�: " << quantita[tmp] << "\nCosto: " << costo[tmp] << " €";
-        Sleep(4000);
+        sleep(4);
         Clear();
         home();
 
@@ -159,7 +168,7 @@ public:
         quantita[tmp] = 0;
         costo[tmp] = -1;
         nome[tmp] = "a";
-        Sleep(4);
+        sleep(1);
         Clear();
         home();
     }
@@ -169,16 +178,16 @@ public:
         cout << "====  Magazzino  ====" << endl;
         cout << "=====================" << endl << endl << AttributiStringOff;
 
-        int totQuantita = 0;
+        int totQuantita = 0, totPrezzo = 0, totCosto = 0;
 
-        for (int i = 0; i < lunghezzaQuantita; i++) {
-            if (quantita[i] > 0) {
+        for (int i = 0; i < lunghezzaArray; i++) {
+            if (quantita[i] > 0 && costo[i] > 0) {
                 totQuantita += quantita[i];
+                totCosto += (costo[i] * quantita[i]);
             }
         }
-
-        cout <<Verde<<Bold<<"Hai " << totQuantita <<" prodotti in magazzino."<<endl<<endl<<Rosso<<"Ritorno alla home..." <<AttributiStringOff<< endl;
-        Sleep(4000);
+        cout <<Verde<<Bold<<"Hai " << totQuantita <<" prodotti in magazzino."<<endl<<"Dal valore di: "<<totCosto<<"€"<<endl<<endl<<Rosso<<"Ritorno alla home..." <<AttributiStringOff<< endl;
+        sleep(4);
         Clear();
         home();
     }
@@ -213,6 +222,7 @@ public:
 };
 
 int main() {
+    inizializzaArray(codice, quantita, costo, nome);
     gestoreMagazzino gestore;
     gestore.home();
 }
