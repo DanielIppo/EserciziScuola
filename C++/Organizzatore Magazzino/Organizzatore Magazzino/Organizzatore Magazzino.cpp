@@ -39,10 +39,10 @@ string tipologia[] = { "Computer_Fisso", "Computer_Portatile", "Scheda_Video", "
 
 int lunghezzaArray = 1000;
 
-int codice[1000];
-int quantita[1000];
-int costo[1000];
-string nome[1000];
+int codice[1000] = {};
+int quantita[1000] = {};
+int costo[1000] = {};
+string nome[1000] = {};
 
 void inizializzaArray(int* codice, int* quantita, int* costo, string* nome){
     
@@ -80,7 +80,7 @@ public:
         case 2:Clear(); ricercaProdotto();  break;
         case 3:Clear(); cancellaProdotto();  break;
         case 4:Clear(); valoreMagazzino();  break;
-        case 5://Clear(); valoreTipologiaProdotti();  break;
+        case 5:Clear(); valoreTipologiaProdotti();  break;
         case 6:break;
         default:
             cout << Bold << Giallo << "Hai sbagliato a inserire o non ho trovato quello che cerchi, riprova..." << AttributiStringOff << endl;
@@ -119,7 +119,6 @@ public:
             home();
         }
         cout << Bold << Blue << "\nDimmi il nome del prodotto: " << AttributiStringOff;
-        cin >> sceltaString;
         getline(cin, sceltaString, '\n');
         if (sceltaString != "") {
             nome[tmp] = sceltaString;
@@ -135,6 +134,8 @@ public:
             sleep(1);
             Clear();
             home();
+        } else {
+            cout << "sbagliato";
         }
     }
 
@@ -174,9 +175,6 @@ public:
     }
 
     void valoreMagazzino() {
-        cout << Bold << Rosso << "=====================" << endl;
-        cout << "====  Magazzino  ====" << endl;
-        cout << "=====================" << endl << endl << AttributiStringOff;
 
         int totQuantita = 0, totPrezzo = 0, totCosto = 0;
 
@@ -190,6 +188,34 @@ public:
         sleep(4);
         Clear();
         home();
+    }
+    
+    void valoreTipologiaProdotti(){
+        cout << Bold << Rosso << "=====================" << endl;
+        cout << "====  Magazzino  ====" << endl;
+        cout << "=====================" << endl << endl << AttributiStringOff;
+        
+        cout << Blue << Bold << "Dimmi la categoria dei prodotti che vuoi vedere il valore: "<< AttributiStringOff;
+        getline(cin, sceltaString, '\n');
+        if(sceltaString == "Computer Fisso"){
+            cout << "ciao";
+        } else if (sceltaString == "Computer Portatile"){
+            
+        } else if (sceltaString == "Scheda Video"){
+            
+        } else if (sceltaString == "Mouse"){
+            
+        } else if (sceltaString == "Tastiera"){
+            
+        } else if (sceltaString == "Cuffie"){
+            
+        } else {
+            cout << Rosso << Bold << "Non esistono categorie di questo nome, riprova..."<<endl<< AttributiStringOff;
+            sleep(4);
+            Clear();
+            home();
+        }
+        
     }
 
     int verificaCodice(int code) {
