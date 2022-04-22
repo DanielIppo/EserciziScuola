@@ -1,0 +1,24 @@
+﻿  Esercizi Classroom.cpp
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(77,23): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(80,23): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(83,23): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(118,35): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(118,19): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(118,18): warning C4244: '=': conversione da 'float' a 'int'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(119,49): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(119,33): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(119,32): warning C4244: '=': conversione da 'float' a 'int'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(120,47): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(120,35): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(120,34): warning C4244: '=': conversione da 'float' a 'int'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(121,25): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(121,24): warning C4244: '=': conversione da 'float' a 'int'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(122,48): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(122,35): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(122,34): warning C4244: '=': conversione da 'float' a 'int'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(124,56): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(124,48): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(124,35): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(124,30): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\Esercizi Classroom\Esercizi Classroom.cpp(124,18): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+  Esercizi Classroom.vcxproj -> C:\Users\alunno1bis\Pictures\SASA\Esercizi Classroom\x64\Debug\Esercizi Classroom.exe
