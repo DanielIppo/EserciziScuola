@@ -1,41 +1,30 @@
-﻿/*Lo studio commerciale “Bardini & Roversi” vi chiede di realizzare un programma che permetta di elaborare la busta paga dei dipendenti tenuto conto che le fasi sono le seguenti:
-
+/*Lo studio commerciale “Bardini & Roversi” vi chiede di realizzare un programma che permetta di elaborare la busta paga dei dipendenti tenuto conto che le fasi sono le seguenti:
 1. Definizione dello stipendio lordo (n° ore lavorate * paga base oraria)
-
 2. Calcolo delle ritenute previdenziali (stipendio lordo * 23,81%)
-
 3. Calcolo dell’imponibile fiscale (stipendio lordo – ritenuta previdenziale)
-
 4. Calcolo dell’imposta lorda sull’imponibile fiscale.
 		Reddito Mensile Aliquota
 		Irpef
 		Fino a 1.154 23%
 		Oltre 1.154 fino a 2.154 25%
 		Oltre 2.154 35%
-
 5. Calcolo delle seguenti detrazioni per lavoro dipendente:
 		Reddito Mensile Importo Della Detrazione
 		Fino a 1.154 144
-		Oltre 1.154 fino a 2.154 146+92*(2.154-reddito)/1.000 
+		Oltre 1.154 fino a 2.154 146+92*(2.154-reddito)/1.000
 		Oltre 2.154 0
-
 6. Calcolo detrazioni per familiari a carico
 Tipo Importo Della Detrazione:
 		figlio di età inferiore ai tre anni; 220,00
-		figlio disabile di età superiore a tre anni 350,00
-		figlio disabile di età inferiore a tre anni. 620,00
-
+		figlio disabile di età superiore a tre anni 350,00
+		figlio disabile di età inferiore a tre anni. 620,00
 7. Calcolo detrazione coniuge e carico
 		Reddito Mensile Importo Della Detrazione
 		Fino a 1.154 67
 		Oltre 1.154 fino a 3.333 58
 		Oltre 3.333 0
-
 8. Calcolo dell’imposta netta (imposta lorda-detrazioni)
-
 9. Calcolo dello stipendio netto da liquidare al lavoratore (Stipendio lordo-ritenute previdenziali-imposta netta)
-
-
 Realizzare un programma che permetta di gestire attraverso le funzioni di calcolare la retribuzione mensile
 di un dipendente*/
 #include <iostream>
@@ -61,7 +50,7 @@ void header() {
 	cout << "::::::::::::::::::::::::::::::::::::" << endl;
 	cout << ":::::::::Bardini & Roversi::::::::::" << endl;
 	cout << "::::::::::::::::::::::::::::::::::::" << endl << endl;
-}	
+}
 
 void clear() { //Creo una funzione che serve per pulire lo schermo per tutti i sistemi operativi
 #if _WIN32
@@ -125,7 +114,15 @@ float calcoloImpostaLorda(float imponibilefiscale) {
 	imponibilefiscale = imponibilefiscale - 1154;
 	if (imponibilefiscale > 1154 && imponibilefiscale < 2154) {
 		impostalorda += (imponibilefiscale * 25) / 100;
-		
+		imponibilefiscale -= 2154;
+		if (imponibilefiscale > 0) {
+			impostalorda += (imponibilefiscale * 35) / 100;
+			return impostalorda;
+		} else {
+			return impostalorda;
+		}
+	} else {
+		return impostalorda;
 	}
 }
 
@@ -133,7 +130,7 @@ int main() {
 	header();
 	int oreLavorative, nFigli;
 	float pagaBase, stipendioLordo, ritenutePrevidenziale, imponibileFiscale, impostaLorda; //Creo le variabili che mi serviranno per calcolare le retribuzioni
-	cout<< "Inserisci il numero di ore lavorate: ";
+	cout << "Inserisci il numero di ore lavorate: ";
 	cin >> oreLavorative;
 	oreLavorative = checkInput(oreLavorative, "Ore lavorate: ");
 	cout << "Inserisci la paga base oraria: ";
@@ -142,7 +139,7 @@ int main() {
 	cout << "Inserisci il numero di figli: ";
 	cin >> nFigli;
 	nFigli = checkInput(nFigli, "Numero di figli: ");
-		 
+
 	stipendioLordo = calcolaStipendioLordo(oreLavorative, pagaBase);
 	ritenutePrevidenziale = calcoloRitenutePrevidenziali(stipendioLordo);
 	imponibileFiscale = calcoloImponibileFiscale(stipendioLordo, ritenutePrevidenziale);
