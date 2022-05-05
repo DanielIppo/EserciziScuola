@@ -126,16 +126,39 @@ float calcoloImpostaLorda(float imponibilefiscale) {
 	}
 }
 
+float detrazioniPerLavoroDipendente(float imponibilefiscale) {
+	float detrazione = 0;
+	detrazione = 144;
+	imponibilefiscale = imponibilefiscale - 1154;
+	if (imponibilefiscale > 1154 && imponibilefiscale < 2154) {
+		detrazione += (imponibilefiscale * 25) / 100;
+		imponibilefiscale -= 2154;
+		if (imponibilefiscale > 0) {
+			detrazione += (imponibilefiscale * 35) / 100;
+			return detrazione;
+		}
+		else {
+			return detrazione;
+		}
+	}
+	else {
+		return detrazione;
+	}
+}
+
 int main() {
 	header();
 	int oreLavorative, nFigli;
-	float pagaBase, stipendioLordo, ritenutePrevidenziale, imponibileFiscale, impostaLorda; //Creo le variabili che mi serviranno per calcolare le retribuzioni
+	float pagaBase, stipendioLordo, ritenutePrevidenziale, imponibileFiscale, impostaLorda, reddito; //Creo le variabili che mi serviranno per calcolare le retribuzioni
 	cout << "Inserisci il numero di ore lavorate: ";
 	cin >> oreLavorative;
 	oreLavorative = checkInput(oreLavorative, "Ore lavorate: ");
 	cout << "Inserisci la paga base oraria: ";
 	cin >> pagaBase;
 	pagaBase = checkInputFloat(pagaBase, "Paga base oraria: ");
+	cout << "Inserisci il tuo reddito: ";
+	cin >> reddito;
+	reddito = checkInputFloat(reddito, "Reddito: ");
 	cout << "Inserisci il numero di figli: ";
 	cin >> nFigli;
 	nFigli = checkInput(nFigli, "Numero di figli: ");
