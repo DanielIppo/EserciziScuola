@@ -1,4 +1,4 @@
-/*3) Implementare la funzione swap passandogli i valori tramite puntatori.*/
+/*2) Trovare il massimo tra due numeri tramite puntatori.*/
 
 #include <iostream>
 using namespace std;
