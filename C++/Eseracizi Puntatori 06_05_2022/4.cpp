@@ -9,7 +9,7 @@ int main()
     char *puntatore = &prova[0];
     int lunghezza;
     cin >> prova;
-    bool flag = false; 
+    bool flag = true; 
     int i = 0;
     while(flag == true){
         if(*puntatore == '\0'){
