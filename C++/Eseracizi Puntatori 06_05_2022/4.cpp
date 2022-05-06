@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    char prova[18];
+    char prova[];
     char *puntatore = &prova[0];
     int lunghezza;
     cin >> prova;
